@@ -23,7 +23,7 @@ class ViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cellCount = 20
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTapGesture(_:)))
         self.collectionView!.addGestureRecognizer(tapRecognizer)
         self.collectionView!.registerClass(Cell.self, forCellWithReuseIdentifier: cellIdentifier)
         self.collectionView!.reloadData()

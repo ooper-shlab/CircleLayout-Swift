@@ -14,4 +14,4 @@ REQUIREMENTS
 --------------------------------------------------------------------------------
 
 ## Build Requirements
-Xcode 7 beta 4, iOS9 SDK
+Xcode 7.3, iOS9 SDK
