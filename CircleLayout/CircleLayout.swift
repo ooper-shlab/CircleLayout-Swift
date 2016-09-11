@@ -23,51 +23,51 @@ class CircleLayout: UICollectionViewLayout {
     var cellCount: Int = Int()
 
 
-    override func prepareLayout() {
-        super.prepareLayout()
+    override func prepare() {
+        super.prepare()
 
         let size = self.collectionView!.frame.size
-        cellCount = self.collectionView!.numberOfItemsInSection(0)
-        center = CGPointMake(size.width / 2.0, size.height / 2.0)
+        cellCount = self.collectionView!.numberOfItems(inSection: 0)
+        center = CGPoint(x: size.width / 2.0, y: size.height / 2.0)
         radius = min(size.width, size.height) / 2.5
     }
 
-    override func collectionViewContentSize() -> CGSize {
+    override var collectionViewContentSize : CGSize {
         return self.collectionView!.frame.size
     }
 
-    override func layoutAttributesForItemAtIndexPath(path: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: path)
-        attributes.size = CGSizeMake(ITEM_SIZE, ITEM_SIZE)
-        attributes.center = CGPointMake(center.x + radius * cos(2 * CGFloat(path.item) * CGFloat(M_PI) / CGFloat(cellCount)),
-            center.y + radius * sin(2 * CGFloat(path.item) * CGFloat(M_PI) / CGFloat(cellCount)))
+    override func layoutAttributesForItem(at path: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: path)
+        attributes.size = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
+        attributes.center = CGPoint(x: center.x + radius * cos(2 * CGFloat((path as NSIndexPath).item) * CGFloat(M_PI) / CGFloat(cellCount)),
+            y: center.y + radius * sin(2 * CGFloat((path as NSIndexPath).item) * CGFloat(M_PI) / CGFloat(cellCount)))
         return attributes
     }
 
-    override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes: [UICollectionViewLayoutAttributes] = []
         for i in 0..<self.cellCount {
-            let indexPath = NSIndexPath(forItem: i, inSection: 0)
-            attributes.append(self.layoutAttributesForItemAtIndexPath(indexPath)!)
+            let indexPath = IndexPath(item: i, section: 0)
+            attributes.append(self.layoutAttributesForItem(at: indexPath)!)
         }
         return attributes
     }
 
     //### ???
 //- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForInsertedItemAtIndexPath:(NSIndexPath *)itemIndexPath
-    override func initialLayoutAttributesForAppearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes {
-        let attributes = self.layoutAttributesForItemAtIndexPath(itemIndexPath)!
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes {
+        let attributes = self.layoutAttributesForItem(at: itemIndexPath)!
         attributes.alpha = 0.0
-        attributes.center = CGPointMake(center.x, center.y)
+        attributes.center = CGPoint(x: center.x, y: center.y)
         return attributes
 }
 
     //### ???
 //- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDeletedItemAtIndexPath:(NSIndexPath *)itemIndexPath
-    override func finalLayoutAttributesForDisappearingItemAtIndexPath(itemIndexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
-        let attributes = self.layoutAttributesForItemAtIndexPath(itemIndexPath)!
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        let attributes = self.layoutAttributesForItem(at: itemIndexPath)!
         attributes.alpha = 0.0
-        attributes.center = CGPointMake(center.x, center.y)
+        attributes.center = CGPoint(x: center.x, y: center.y)
         attributes.transform3D = CATransform3DMakeScale(0.1, 0.1, 1.0)
         return attributes
     }

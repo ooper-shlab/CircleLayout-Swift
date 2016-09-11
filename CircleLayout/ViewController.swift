@@ -25,34 +25,34 @@ class ViewController: UICollectionViewController {
         self.cellCount = 20
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTapGesture(_:)))
         self.collectionView!.addGestureRecognizer(tapRecognizer)
-        self.collectionView!.registerClass(Cell.self, forCellWithReuseIdentifier: cellIdentifier)
+        self.collectionView!.register(Cell.self, forCellWithReuseIdentifier: cellIdentifier)
         self.collectionView!.reloadData()
-        self.collectionView!.backgroundColor = UIColor.whiteColor()
+        self.collectionView!.backgroundColor = UIColor.white
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.cellCount
     }
 
-    override func collectionView(cv: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = cv.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath)
+    override func collectionView(_ cv: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = cv.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         return cell
     }
 
-    func handleTapGesture(sender: UITapGestureRecognizer) {
+    func handleTapGesture(_ sender: UITapGestureRecognizer) {
 
-        if sender.state == .Ended {
-            let initialPinchPoint = sender.locationInView(self.collectionView)
-            if let tappedCellPath = self.collectionView!.indexPathForItemAtPoint(initialPinchPoint) {
+        if sender.state == .ended {
+            let initialPinchPoint = sender.location(in: self.collectionView)
+            if let tappedCellPath = self.collectionView!.indexPathForItem(at: initialPinchPoint) {
 
                 self.cellCount = self.cellCount - 1
                 self.collectionView!.performBatchUpdates({
-                    self.collectionView!.deleteItemsAtIndexPaths([tappedCellPath])
+                    self.collectionView!.deleteItems(at: [tappedCellPath])
                 }, completion: nil)
             } else {
                 self.cellCount = self.cellCount + 1
                 self.collectionView!.performBatchUpdates({
-                    self.collectionView!.insertItemsAtIndexPaths([NSIndexPath(forItem: 0, inSection: 0)])
+                    self.collectionView!.insertItems(at: [IndexPath(item: 0, section: 0)])
                 }, completion: nil)
             }
         }

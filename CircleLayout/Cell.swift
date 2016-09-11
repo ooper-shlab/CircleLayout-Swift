@@ -21,8 +21,8 @@ class Cell : UICollectionViewCell {
         super.init(frame: frame)
         self.contentView.layer.cornerRadius = 35.0
         self.contentView.layer.borderWidth = 1.0
-        self.contentView.layer.borderColor = UIColor.whiteColor().CGColor
-        self.contentView.backgroundColor = UIColor.blueColor()
+        self.contentView.layer.borderColor = UIColor.white.cgColor
+        self.contentView.backgroundColor = UIColor.blue
     }
 
     required init?(coder aDecoder: NSCoder) {

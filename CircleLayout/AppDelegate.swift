@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private var viewController: ViewController!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         viewController = ViewController(collectionViewLayout: CircleLayout())
 
         self.window!.rootViewController = self.viewController

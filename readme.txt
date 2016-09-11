@@ -14,4 +14,4 @@ REQUIREMENTS
 --------------------------------------------------------------------------------
 
 ## Build Requirements
-Xcode 7.3, iOS9 SDK
+Xcode 8 GM seed, iOS 10 SDK
