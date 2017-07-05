@@ -39,8 +39,8 @@ class CircleLayout: UICollectionViewLayout {
     override func layoutAttributesForItem(at path: IndexPath) -> UICollectionViewLayoutAttributes? {
         let attributes = UICollectionViewLayoutAttributes(forCellWith: path)
         attributes.size = CGSize(width: ITEM_SIZE, height: ITEM_SIZE)
-        attributes.center = CGPoint(x: center.x + radius * cos(2 * CGFloat((path as NSIndexPath).item) * CGFloat(M_PI) / CGFloat(cellCount)),
-            y: center.y + radius * sin(2 * CGFloat((path as NSIndexPath).item) * CGFloat(M_PI) / CGFloat(cellCount)))
+        attributes.center = CGPoint(x: center.x + radius * cos(2 * CGFloat(path.item) * .pi / CGFloat(cellCount)),
+            y: center.y + radius * sin(2 * CGFloat(path.item) * .pi / CGFloat(cellCount)))
         return attributes
     }
 

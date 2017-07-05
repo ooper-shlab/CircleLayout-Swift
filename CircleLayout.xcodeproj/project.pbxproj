@@ -18,7 +18,7 @@
 		D75159081B6C5984009DEDCB /* CircleLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75159071B6C5984009DEDCB /* CircleLayout.swift */; };
 		D751590A1B6C61A4009DEDCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75159091B6C61A4009DEDCB /* ViewController.swift */; };
 		D751590C1B6C67A4009DEDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751590B1B6C67A4009DEDCB /* AppDelegate.swift */; };
-		D75159101B6C6ACD009DEDCB /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = D751590F1B6C6ACD009DEDCB /* readme.txt */; };
+		D75159101B6C6ACD009DEDCB /* README2.md in Resources */ = {isa = PBXBuildFile; fileRef = D751590F1B6C6ACD009DEDCB /* README2.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		D75159091B6C61A4009DEDCB /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D751590B1B6C67A4009DEDCB /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D751590D1B6C67C9009DEDCB /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		D751590F1B6C6ACD009DEDCB /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		D751590F1B6C6ACD009DEDCB /* README2.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README2.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +58,9 @@
 		77AF0067157FA442001EC3FB = {
 			isa = PBXGroup;
 			children = (
-				D751590F1B6C6ACD009DEDCB /* readme.txt */,
 				D751590D1B6C67C9009DEDCB /* LICENSE.txt */,
 				049640771B5856E300E483B7 /* ReadMe.md */,
+				D751590F1B6C6ACD009DEDCB /* README2.md */,
 				77AF007C157FA442001EC3FB /* CircleLayout */,
 				77AF0075157FA442001EC3FB /* Frameworks */,
 				77AF0073157FA442001EC3FB /* Products */,
@@ -169,7 +169,7 @@
 			files = (
 				0401F5161B4F185100E74186 /* Images.xcassets in Resources */,
 				0498DD461B55CC1C0031C5F2 /* InfoPlist.strings in Resources */,
-				D75159101B6C6ACD009DEDCB /* readme.txt in Resources */,
+				D75159101B6C6ACD009DEDCB /* README2.md in Resources */,
 				0401F5141B4F0AE600E74186 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
